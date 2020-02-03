@@ -1,0 +1,28 @@
+﻿@using Codenation.Web.Controllers
+@model Codenation.Negocios.Entidades.Answer
+@{
+    ViewBag.Title = "Atualizado";
+}
+<div class="jumbotron">
+    <h2 class="text-center">Desafio Codenation</h2>
+</div>
+<h3 class="text-center">Cifra de Cesar</h3>
+<h4>Texto Decifrado:</h4>
+<div class="row">
+    <div class="col-md-12">
+        <p>@Html.DisplayNameFor(model => model.Numero_casas): <span class="text-danger">@Html.DisplayFor(model => model.Numero_casas)</span></p>
+        <p>@Html.DisplayNameFor(model => model.Token): <span class="text-danger">@Html.DisplayFor(model => model.Token)</span></p>
+        <p>@Html.DisplayNameFor(model => model.Cifrado): <span class="text-danger">@Html.DisplayFor(model => model.Cifrado)</span></p>
+        <p>@Html.DisplayNameFor(model => model.Decifrado): <span class="text-danger">@Html.DisplayFor(model => model.Decifrado)</span></p>
+        <p>@Html.DisplayNameFor(model => model.Resumo_criptografico): <span class="text-danger">@Html.DisplayFor(model => model.Resumo_criptografico)</span></p>
+    </div>
+    <div class="row col-md-12 text-center">
+        <br />
+        @using (Html.BeginForm("EnviarArquivoJson", "Atualizado", FormMethod.Post, new { enctype = "multipart/form-data", @id = "formEnvio" }))
+        {
+            <input type="hidden" name="answer" />
+            <button type="submit" name="answer" class="btn btn-primary" ><i class="fa fa-paper-plane"> </i> Enviar Arquivo</button>
+            <div>@ViewBag.Mensagem</div>
+        }
+    </div>
+</div>
